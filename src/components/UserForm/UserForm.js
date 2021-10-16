@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Button from "../UI/Button/Button";
 import styles from "./UserForm.module.css";
 
 const UserForm = (props) => {
@@ -19,6 +20,14 @@ const UserForm = (props) => {
       username: enteredUsername,
       age: +enteredAge,
     };
+    if (userData.username === "" && userData.age === 0) {
+      props.onInvalidInput(
+        "Please enter a valid name and age (non-empty values)."
+      );
+      setEnteredUsername("");
+      setEnteredAge("");
+      return;
+    }
     props.onSaveUserData(userData);
     setEnteredUsername("");
     setEnteredAge("");
@@ -39,14 +48,13 @@ const UserForm = (props) => {
           <label>Age (Years)</label>
           <input
             type="number"
-            min="1"
             max="150"
             value={enteredAge}
             onChange={ageChangeHandler}
           ></input>
         </div>
         <div>
-          <button type="submit">Add User</button>
+          <Button type="submit">Add User</Button>
         </div>
       </form>
     </div>
