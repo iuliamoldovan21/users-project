@@ -21,7 +21,7 @@ function App() {
     });
   };
 
-  const invalidInputHandler = (message) => {
+  const toggleModalHandler = (message) => {
     setModalMessage(message);
     setisModalVisivle(true);
   };
@@ -34,7 +34,7 @@ function App() {
     <div className="App">
       <UserForm
         onSaveUserData={saveUserDataHandler}
-        onInvalidInput={invalidInputHandler}
+        toggleModal={toggleModalHandler}
       />
       <UsersList users={enteredUsers} />
       {isModalVisivle && (
