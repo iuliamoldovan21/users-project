@@ -6,11 +6,11 @@ import Modal from "./components/Modal/Modal";
 
 function App() {
   const [enteredUsers, setEnteredUsers] = useState([]);
-  const [isInputInvalid, setIsInputInvalid] = useState(false);
+  const [isModalVisivle, setisModalVisivle] = useState(false);
   const [modalMessage, setModalMessage] = useState("");
 
   const saveUserDataHandler = (userData) => {
-    setIsInputInvalid(false);
+    setisModalVisivle(false);
     const newUser = {
       username: userData.username,
       age: userData.age,
@@ -23,9 +23,11 @@ function App() {
 
   const invalidInputHandler = (message) => {
     setModalMessage(message);
-    setIsInputInvalid(true);
+    setisModalVisivle(true);
+  };
 
-    console.log(modalMessage);
+  const closeModalHandler = () => {
+    setisModalVisivle(false);
   };
 
   return (
@@ -35,7 +37,9 @@ function App() {
         onInvalidInput={invalidInputHandler}
       />
       <UsersList users={enteredUsers} />
-      {isInputInvalid && <Modal text={modalMessage}></Modal>}
+      {isModalVisivle && (
+        <Modal text={modalMessage} closeModal={closeModalHandler}></Modal>
+      )}
     </div>
   );
 }
