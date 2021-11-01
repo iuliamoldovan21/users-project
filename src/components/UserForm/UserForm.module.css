@@ -1,0 +1,22 @@
+.form {
+  flex-direction: column;
+  font-size: 16px;
+  padding: 1rem;
+}
+
+.form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.form input {
+  display: block;
+  width: 100%;
+  margin-bottom: 0.5rem;
+  border: 1px solid #ccc;
+}
+
+.form input:focus {
+  border-color: purple;
+}

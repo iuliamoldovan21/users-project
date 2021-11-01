@@ -1,0 +1,8 @@
+.button {
+  font: inherit;
+  color: white;
+  background-color: rgb(73, 8, 133);
+  border: 1px rgb(73, 8, 133);
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}

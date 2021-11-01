@@ -1,5 +1,6 @@
 import Button from "../UI/Button/Button";
-import styles from "./Modal.module.css"
+import Card from "../UI/Card/Card";
+import styles from "./Modal.module.css";
 
 const Modal = (props) => {
   const dismissModalHandler = () => {
@@ -11,10 +12,10 @@ const Modal = (props) => {
   };
 
   return (
-    <div className={styles['modal-backdrop']} onClick={dismissModalHandler}>
-      <div className = {styles['modal-content']} onClick={keepModalOpenHandler}>
+    <div className={styles["modal-backdrop"]} onClick={dismissModalHandler}>
+      <Card className={styles["modal-content"]} onClick={keepModalOpenHandler}>
         <div>
-          <h2>Invalid input</h2>
+          <h2 className={styles.header}>Invalid input</h2>
         </div>
         <div>
           <p>{props.text}</p>
@@ -24,7 +25,7 @@ const Modal = (props) => {
             Okay
           </Button>
         </div>
-      </div>
+      </Card>
     </div>
   );
 };
