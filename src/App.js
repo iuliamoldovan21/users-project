@@ -1,6 +1,6 @@
-import UserForm from "./components/UserForm/UserForm";
-import UsersList from "./components/UsersList/UsersList";
-import { useState } from "react";
+import UserForm from "./components/Users/UserForm/UserForm";
+import UsersList from "./components/Users/UsersList/UsersList";
+import React, { useState } from "react";
 import Modal from "./components/UI/Modal/Modal";
 
 function App() {
@@ -27,7 +27,7 @@ function App() {
   };
 
   return (
-    <div>
+    <React.Fragment>
       <UserForm
         onSaveUserData={saveUserDataHandler}
         toggleModal={toggleModalHandler}
@@ -40,7 +40,7 @@ function App() {
           closeModal={closeModalHandler}
         ></Modal>
       )}
-    </div>
+    </React.Fragment>
   );
 }
 

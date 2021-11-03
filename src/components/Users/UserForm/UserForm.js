@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Button from "../UI/Button/Button";
-import Card from "../UI/Card/Card";
+import Button from "../../UI/Button/Button";
+import Card from "../../UI/Card/Card";
 import styles from "./UserForm.module.css";
 
 const UserForm = (props) => {

@@ -1,10 +1,11 @@
 import Button from "../Button/Button";
 import Card from "../Card/Card";
 import styles from "./Modal.module.css";
+import React from "react";
 
 const Modal = (props) => {
   return (
-    <div>
+    <React.Fragment>
       <div className={styles.backdrop} onClick={props.closeModal} />
       <Card className={styles.modal}>
         <header className={styles.header}>
@@ -19,7 +20,7 @@ const Modal = (props) => {
           </Button>
         </footer>
       </Card>
-    </div>
+    </React.Fragment>
   );
 };
 

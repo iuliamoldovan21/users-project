@@ -1,10 +1,11 @@
-import Card from "../UI/Card/Card";
+import React from "react";
+import Card from "../../UI/Card/Card";
 import UserItem from "../UserItem/UserItem";
 import styles from "./UsersList.module.css";
 
 const UsersList = (props) => {
   return (
-    <div>
+    <React.Fragment>
       {props.users.length > 0 && (
         <Card className={styles.users}>
           <ul>
@@ -16,7 +17,7 @@ const UsersList = (props) => {
           </ul>
         </Card>
       )}
-    </div>
+    </React.Fragment>
   );
 };
 
