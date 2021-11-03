@@ -8,11 +8,11 @@ const UsersList = (props) => {
       {props.users.length > 0 && (
         <Card className={styles.users}>
           <ul>
-              {props.users.map((user) => (
-                <UserItem key={user.id} username={user.username} age={user.age}>
-                  {user.username + " (" + user.age + " years old)"}
-                </UserItem>
-              ))}
+            {props.users.map((user) => (
+              <UserItem key={user.id} username={user.username} age={user.age}>
+                {user.username + " (" + user.age + " years old)"}
+              </UserItem>
+            ))}
           </ul>
         </Card>
       )}

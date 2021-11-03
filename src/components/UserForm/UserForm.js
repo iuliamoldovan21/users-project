@@ -35,34 +35,38 @@ const UserForm = (props) => {
 
   const checkDataValidity = (data) => {
     if (data.username.trim().length === 0 || data.age === 0) {
-      return "Please enter a valid name and age (non-empty values).";
+      return {
+        title: "Invalid input",
+        message: "Please enter a valid name and age (non-empty values).",
+      };
     } else if (data.age < 1) {
-      return "Please enter a valid age (>0).";
+      return {
+        title: "Invalid age",
+        message: "Please enter a valid age (>0).",
+      };
     }
     return null;
   };
 
   return (
-    <div>
-      <Card className={styles.form}>
-        <form onSubmit={submitHandler}>
-          <label>Username</label>
-          <input
-            type="text"
-            value={enteredUsername}
-            onChange={usernameChangeHandler}
-          ></input>
-          <label>Age (Years)</label>
-          <input
-            type="number"
-            max="150"
-            value={enteredAge}
-            onChange={ageChangeHandler}
-          ></input>
-          <Button type="submit">Add User</Button>
-        </form>
-      </Card>
-    </div>
+    <Card className={styles.form}>
+      <form onSubmit={submitHandler}>
+        <label>Username</label>
+        <input
+          type="text"
+          value={enteredUsername}
+          onChange={usernameChangeHandler}
+        ></input>
+        <label>Age (Years)</label>
+        <input
+          type="number"
+          max="150"
+          value={enteredAge}
+          onChange={ageChangeHandler}
+        ></input>
+        <Button type="submit">Add User</Button>
+      </form>
+    </Card>
   );
 };
 

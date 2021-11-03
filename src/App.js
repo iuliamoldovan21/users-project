@@ -1,16 +1,13 @@
 import UserForm from "./components/UserForm/UserForm";
-import "./App.css";
 import UsersList from "./components/UsersList/UsersList";
 import { useState } from "react";
-import Modal from "./components/Modal/Modal";
+import Modal from "./components/UI/Modal/Modal";
 
 function App() {
   const [enteredUsers, setEnteredUsers] = useState([]);
-  const [isModalVisivle, setisModalVisivle] = useState(false);
-  const [modalMessage, setModalMessage] = useState("");
+  const [error, setError] = useState();
 
   const saveUserDataHandler = (userData) => {
-    setisModalVisivle(false);
     const newUser = {
       username: userData.username,
       age: userData.age,
@@ -21,24 +18,27 @@ function App() {
     });
   };
 
-  const toggleModalHandler = (message) => {
-    setModalMessage(message);
-    setisModalVisivle(true);
+  const toggleModalHandler = (err) => {
+    setError({ title: err.title, message: err.message });
   };
 
   const closeModalHandler = () => {
-    setisModalVisivle(false);
+    setError(null);
   };
 
   return (
-    <div className="App">
+    <div>
       <UserForm
         onSaveUserData={saveUserDataHandler}
         toggleModal={toggleModalHandler}
       />
       <UsersList users={enteredUsers} />
-      {isModalVisivle && (
-        <Modal text={modalMessage} closeModal={closeModalHandler}></Modal>
+      {error && (
+        <Modal
+          title={error.title}
+          message={error.message}
+          closeModal={closeModalHandler}
+        ></Modal>
       )}
     </div>
   );

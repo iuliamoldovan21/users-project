@@ -1,14 +1,16 @@
-.users{
-    margin: 2rem auto;
-    padding: 1rem;
+.users {
+  margin: 2rem auto;
+  width: 90%;
+  max-width: 40rem;
 }
 
-.users ul{
-    list-style-type: none;
+.users ul {
+  list-style-type: none;
+  padding: 1rem;
 }
 
-.users li{
-    padding: 0.5rem;
-    margin: 0.25rem;
-    border: 1px solid #ccc;
+.users li {
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+  border: 1px solid #ccc;
 }
